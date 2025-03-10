@@ -1,10 +1,8 @@
-using TMPro;
 using UnityEngine;
-
 public class GameManager : SingletonMonoBehavior<GameManager>
 {
-    [SerializeField] private int score = 0;
-    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private int score;
+    [SerializeField] private CoinCounterUI coinCounter;
 
     protected override void Awake()
     {
@@ -16,6 +14,6 @@ public class GameManager : SingletonMonoBehavior<GameManager>
     public void IncreaseScore()
     {
         score++;
-        scoreText.text = $"Score: {score}";
+        coinCounter.UpdateScore(score);
     }
 }
